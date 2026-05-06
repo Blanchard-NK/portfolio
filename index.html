@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanchard NKOGHE — Portfolio Développeur</title>
+  <meta name="description" content="Portfolio de Blanchard NKOGHE, étudiant BTS SIO option SLAM – Développement logiciel & solutions numériques." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+</head>
+<body>
+
+  <!-- ░░ LOADER ░░ -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-inner">
+      <div class="loader-logo">BN<span class="logo-dot">.</span></div>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+      <p class="loader-text" id="loaderText">Initialisation…</p>
+    </div>
+  </div>
+
+  <!-- ░░ CURSEUR ░░ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ░░ CANVAS PARTICULES ░░ -->
+  <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#accueil">BN<span class="logo-dot">.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil"     class="nav-link active">Accueil</a></li>
+        <li><a href="#parcours"    class="nav-link">Parcours</a></li>
+        <li><a href="#activites"   class="nav-link">Activités</a></li>
+        <li><a href="#competences" class="nav-link">Compétences</a></li>
+        <li><a href="#projets"     class="nav-link">Projets</a></li>
+        <li><a href="#veille"      class="nav-link">Veille</a></li>
+        <li><a href="#contact"     class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer thème">
+          <i class="ph ph-sun" id="themeIcon"></i>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Barre de progression lecture -->
+    <div class="reading-bar" id="readingBar"></div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text reveal-up">
+        <p class="hero-eyebrow"><span class="eyebrow-dot"></span> Disponible pour opportunités</p>
+        <h1 class="hero-name">Blanchard<br /><span class="name-accent">NKOGHE</span></h1>
+        <p class="hero-title">
+          Étudiant en <span class="highlight">BTS SIO – Option SLAM</span><br/>
+          Développement Logiciel &amp; Solutions Numériques
+        </p>
+        <p class="hero-bio">
+          Développeur passionné, je construis des solutions logicielles élégantes, spécialisé en
+          <span class="typed-text" id="typedText"></span><span class="typed-cursor-blink">|</span>
+        </p>
+        <div class="hero-cta">
+          <a href="#projets" class="btn btn-primary">
+            <i class="ph ph-folder-open"></i> Voir mes projets
+          </a>
+          <!-- ✏️ Remplacez # par le lien vers votre CV PDF -->
+          <a href="#" class="btn btn-ghost" target="_blank" rel="noopener">
+            <i class="ph ph-download-simple"></i> Télécharger CV
+          </a>
+        </div>
+        <div class="hero-socials">
+          
+          <a href="https://github.com/Blanchard-NK" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="ph ph-github-logo"></i>
+          </a>
+          
+          <a href="https://www.linkedin.com/in/blanchard-nkoghe-0090b2306/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="ph ph-linkedin-logo"></i>
+          </a>
+          
+          <a href="mailto:blanchardnkoghe@gmail.com" class="social-link" aria-label="Email">
+            <i class="ph ph-envelope-simple"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal-right">
+        <div class="code-window">
+          <div class="window-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="window-title">portfolio.js</span>
+          </div>
+          <div class="code-body">
+<pre><code><span class="c-keyword">const</span> <span class="c-var">développeur</span> <span class="c-op">=</span> {
+  <span class="c-prop">nom</span><span class="c-op">:</span>       <span class="c-str">"Blanchard NKOGHE"</span>,
+  <span class="c-prop">formation</span><span class="c-op">:</span> <span class="c-str">"BTS SIO – SLAM"</span>,
+  <span class="c-prop">langages</span><span class="c-op">:</span>  [
+    <span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>,
+    <span class="c-str">"JavaScript"</span>, <span class="c-str">"PHP"</span>,
+    <span class="c-str">"Java"</span>, <span class="c-str">"Python"</span>
+  ],
+  <span class="c-prop">passion</span><span class="c-op">:</span>   <span class="c-str">"Créer de belles UX"</span>,
+  <span class="c-prop">dispo</span><span class="c-op">:</span>     <span class="c-keyword">true</span>
+}
+<span class="c-fn">console</span>.<span class="c-method">log</span>(<span class="c-str">"Construisons !"</span>)<span class="c-cursor">█</span></code></pre>
+          </div>
+        </div>
+        <div class="floating-badge badge-1"><i class="ph ph-code"></i> Développement Web</div>
+        <div class="floating-badge badge-2"><i class="ph ph-shield-check"></i> BTS SIO</div>
+        <div class="floating-badge badge-3"><i class="ph ph-brain"></i> IA &amp; Innovation</div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- ░░ COMPTEURS ░░ -->
+  <section class="counters-section">
+    <div class="container counters-grid">
+      <div class="counter-item reveal-up" style="--delay:0ms">
+        <span class="counter-num" data-target="6">0</span><span class="counter-suffix">+</span>
+        <span class="counter-label">Projets réalisés</span>
+      </div>
+      <div class="counter-item reveal-up" style="--delay:100ms">
+        <span class="counter-num" data-target="2">0</span>
+        <span class="counter-label">Années d'études</span>
+      </div>
+      <div class="counter-item reveal-up" style="--delay:200ms">
+        <span class="counter-num" data-target="6">0</span><span class="counter-suffix">+</span>
+        <span class="counter-label">Technologies</span>
+      </div>
+      <div class="counter-item reveal-up" style="--delay:300ms">
+        <span class="counter-num" data-target="100">0</span><span class="counter-suffix">%</span>
+        <span class="counter-label">Investissement</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ PARCOURS ░░ -->
+  <section class="section about" id="parcours">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">01 — À propos</p>
+        <h2 class="section-title">Mon Parcours</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-intro reveal-left">
+          <p class="about-lead">
+            Je suis un étudiant motivé en <strong>BTS SIO option SLAM</strong> — un diplôme de l'enseignement supérieur axé sur le développement d'applications et les solutions informatiques.
+          </p>
+          <p class="about-text">
+            Mon aventure a commencé par une curiosité profonde pour le fonctionnement des produits numériques. Cette curiosité s'est transformée en une véritable passion pour la conception d'applications web propres, fonctionnelles et esthétiquement soignées.
+          </p>
+          <p class="about-text">
+            Mon objectif : devenir développeur full-stack avec une expertise solide en technologies web modernes, méthodologies agiles et conception centrée utilisateur. J'explore constamment de nouveaux outils pour perfectionner mon art.
+          </p>
+          <!-- Soft skills -->
+          <div class="soft-skills">
+            <span class="ss-badge"><i class="ph ph-users-three"></i> Esprit d'équipe</span>
+            <span class="ss-badge"><i class="ph ph-lightbulb"></i> Curiosité</span>
+            <span class="ss-badge"><i class="ph ph-target"></i> Rigueur</span>
+            <span class="ss-badge"><i class="ph ph-arrows-clockwise"></i> Adaptabilité</span>
+            <span class="ss-badge"><i class="ph ph-chat-dots"></i> Communication</span>
+          </div>
+        </div>
+
+        <div class="timeline reveal-right">
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2024 – Présent</span>
+              <h3 class="tl-title">BTS SIO – Option SLAM</h3>
+              <p class="tl-desc">Brevet de Technicien Supérieur en Solutions Informatiques et Applicatives. Développement logiciel, bases de données, administration réseau et gestion de projets professionnels.</p>
+              <span class="tl-badge tl-active">En cours</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2025</span>
+              <h3 class="tl-title">Premier Stage Professionnel</h3>
+              <p class="tl-desc">Expérience concrète en infrastructure IT, gestion de tickets GLPI et introduction au développement full-stack en milieu professionnel.</p>
+              <span class="tl-badge">Stage</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">2024</span>
+              <h3 class="tl-title">Baccalauréat</h3>
+              <p class="tl-desc">Obtention du Baccalauréat, socle fondateur avant de plonger dans l'univers du développement logiciel et de l'informatique.</p>
+              <span class="tl-badge">Diplôme</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-dot future"></div>
+            <div class="tl-content">
+              <span class="tl-year">2026 et au-delà</span>
+              <h3 class="tl-title">Objectifs Futurs</h3>
+              <p class="tl-desc">Poursuivre vers une Licence Pro ou Bachelor Développement Logiciel. Intégrer une équipe dynamique pour concevoir des applications à fort impact.</p>
+              <span class="tl-badge tl-future">Objectif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ ACTIVITÉS ░░ -->
+  <section class="section activities" id="activites">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">02 — Activités professionnelles</p>
+        <h2 class="section-title">Ce que je fais</h2>
+      </div>
+      <div class="activities-grid">
+        <div class="activity-card reveal-up" style="--delay:0ms">
+          <div class="act-icon"><i class="ph ph-ticket"></i></div>
+          <h3 class="act-title">Gestion de tickets GLPI</h3>
+          <p class="act-desc">Traitement des demandes de support via GLPI, priorisation des incidents, suivi des résolutions et communication entre utilisateurs et équipes techniques.</p>
+          <div class="act-tag">Support IT</div>
+        </div>
+        <div class="activity-card reveal-up" style="--delay:80ms">
+          <div class="act-icon"><i class="ph ph-network"></i></div>
+          <h3 class="act-title">Configuration Réseau</h3>
+          <p class="act-desc">Mise en place et configuration de réseaux locaux, routeurs, commutateurs et VLANs. Gestion de l'adressage IP et sécurisation des connexions.</p>
+          <div class="act-tag">Réseau</div>
+        </div>
+        <div class="activity-card reveal-up" style="--delay:160ms">
+          <div class="act-icon"><i class="ph ph-linux-logo"></i></div>
+          <h3 class="act-title">Environnement Linux</h3>
+          <p class="act-desc">Installation et configuration de distributions Linux (Debian, Ubuntu). Gestion des utilisateurs, permissions, services et scripts shell d'automatisation.</p>
+          <div class="act-tag">Systèmes</div>
+        </div>
+        <div class="activity-card reveal-up" style="--delay:240ms">
+          <div class="act-icon"><i class="ph ph-monitor"></i></div>
+          <h3 class="act-title">Virtualisation (VirtualBox)</h3>
+          <p class="act-desc">Création et gestion de machines virtuelles pour environnements de test, développement et administration système isolés.</p>
+          <div class="act-tag">Virtualisation</div>
+        </div>
+        <div class="activity-card reveal-up" style="--delay:320ms">
+          <div class="act-icon"><i class="ph ph-globe"></i></div>
+          <h3 class="act-title">Développement Web</h3>
+          <p class="act-desc">Conception et réalisation d'applications web full-stack. Utilisation de PHP, JavaScript, MySQL et CSS moderne, de la maquette au déploiement.</p>
+          <div class="act-tag">Full Stack</div>
+        </div>
+        <div class="activity-card reveal-up" style="--delay:400ms">
+          <div class="act-icon"><i class="ph ph-database"></i></div>
+          <h3 class="act-title">Administration BDD</h3>
+          <p class="act-desc">Conception de bases de données relationnelles MySQL, requêtes SQL optimisées, gestion des schémas et intégrité des données applicatives.</p>
+          <div class="act-tag">Bases de données</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ COMPÉTENCES ░░ -->
+  <section class="section skills" id="competences">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">03 — Compétences</p>
+        <h2 class="section-title">Expertise Technique</h2>
+      </div>
+      <div class="skills-wrapper">
+        <div class="skill-bars reveal-left">
+          <h3 class="skills-sub">Langages &amp; Technologies</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-file-html"></i> HTML</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-file-css"></i> CSS</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-file-js"></i> JavaScript</span>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-code"></i> PHP</span>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-coffee"></i> Java</span>
+              <span class="skill-pct">50%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="ph ph-snake"></i> Python</span>
+              <span class="skill-pct">30%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          </div>
+        </div>
+
+        <div class="tools-grid reveal-right">
+          <h3 class="skills-sub">Outils &amp; Environnements</h3>
+          <div class="tools-list">
+            <div class="tool-card">
+              <div class="tool-icon tool-vscode"><i class="ph ph-code-simple"></i></div>
+              <span>VS Code</span>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon tool-github"><i class="ph ph-github-logo"></i></div>
+              <span>GitHub</span>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon tool-xampp"><i class="ph ph-stack"></i></div>
+              <span>XAMPP</span>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon tool-vbox"><i class="ph ph-monitor"></i></div>
+              <span>VirtualBox</span>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon tool-figma"><i class="ph ph-figma-logo"></i></div>
+              <span>Figma</span>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon tool-trello"><i class="ph ph-kanban"></i></div>
+              <span>Trello</span>
+            </div>
+          </div>
+          <!-- Radar chart canvas -->
+          <div class="radar-wrap">
+            <h3 class="skills-sub" style="margin-top:32px">Profil global</h3>
+            <canvas id="radarChart" width="240" height="240"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ PROJETS ░░ -->
+  <section class="section projects" id="projets">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">04 — Réalisations</p>
+        <h2 class="section-title">Projets Sélectionnés</h2>
+      </div>
+
+      <!-- Filtres de catégorie -->
+      <div class="project-filters reveal-up">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="ui">UI/UX</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card reveal-up" data-category="web backend" style="--delay:0ms">
+          <div class="project-img">
+            <div class="img-placeholder img-campus">
+              <i class="ph ph-graduation-cap"></i>
+              <span>CampusFlow</span>
+            </div>
+            <div class="project-overlay">
+              <span class="project-tag">Projet Principal</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">CampusFlow</h3>
+            <p class="project-desc">Application web de gestion de campus : emplois du temps, suivi de cours, workflows administratifs, tableau de bord et notifications avec accès par rôles.</p>
+            <div class="project-tech">
+              <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Blanchard-NK/campusflow" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">
+                <i class="ph ph-github-logo"></i> Code
+              </a>
+              <a href="#" class="btn btn-sm btn-primary" target="_blank" rel="noopener">
+                <i class="ph ph-eye"></i> Démo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-category="web ui" style="--delay:120ms">
+          <div class="project-img">
+            <div class="img-placeholder img-dashboard">
+              <i class="ph ph-chart-bar"></i>
+              <span>site web</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">site web statique</h3>
+            <p class="project-desc">Site web statique avec une interface simple, une navigation facile et un design responsive permettant une bonne expérience utilisateur.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">
+                <i class="ph ph-github-logo"></i> Code
+              </a>
+              <a href="#" class="btn btn-sm btn-primary" target="_blank" rel="noopener">
+                <i class="ph ph-eye"></i> Captures
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-category="web backend" style="--delay:240ms">
+          <div class="project-img">
+            <div class="img-placeholder img-taskapp">
+              <i class="ph ph-check-square"></i>
+              <span>Task Manager</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Gestionnaire de Tâches</h3>
+            <p class="project-desc">Application web full-stack avec authentification, CRUD complet, priorités, étiquettes et suivi des échéances — interface claire et intuitive.</p>
+            <div class="project-tech">
+              <span>PHP</span><span>MySQL</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">
+                <i class="ph ph-github-logo"></i> Code
+              </a>
+              <a href="#" class="btn btn-sm btn-primary" target="_blank" rel="noopener">
+                <i class="ph ph-eye"></i> Captures
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ VEILLE TECHNOLOGIQUE ░░ -->
+  <section class="section techwatch" id="veille">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">05 — Veille Technologique</p>
+        <h2 class="section-title">L'Intelligence Artificielle<br/><span class="name-accent">dans le Développement Web</span></h2>
+        <p class="section-sub">Explorer comment l'IA redéfinit la façon dont nous construisons des produits numériques</p>
+      </div>
+
+      <div class="tw-grid">
+        <div class="tw-card tw-definition reveal-up" style="--delay:0ms">
+          <div class="tw-icon"><i class="ph ph-info"></i></div>
+          <h3>Qu'est-ce que l'Intelligence Artificielle ?</h3>
+          <p>L'Intelligence Artificielle désigne la simulation de l'intelligence humaine dans des machines programmées pour penser, apprendre et résoudre des problèmes. Dans le développement web, l'IA englobe le traitement du langage naturel, le machine learning et les modèles génératifs capables d'écrire du code, d'analyser des données et d'automatiser des workflows complexes.</p>
+        </div>
+
+        <div class="tw-card tw-impact reveal-up" style="--delay:80ms">
+          <div class="tw-icon"><i class="ph ph-lightning"></i></div>
+          <h3>Impact sur le Développement</h3>
+          <p>L'IA transforme les pratiques de développement en automatisant les tâches répétitives, en proposant des suggestions de code intelligentes, en générant des extraits depuis des invites en langage naturel, en détectant les bugs en temps réel et en permettant des expériences utilisateur personnalisées grâce à l'analyse de données.</p>
+        </div>
+
+        <div class="tw-card tw-advantages reveal-up" style="--delay:160ms">
+          <div class="tw-icon"><i class="ph ph-check-circle"></i></div>
+          <h3>Avantages</h3>
+          <ul class="tw-list">
+            <li><i class="ph ph-arrow-right"></i><strong>Automatisation</strong> — Tâches répétitives automatisées, gain de temps considérable</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Productivité</strong> — Code écrit plus rapidement grâce aux suggestions IA</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Qualité</strong> — Détection de bugs et optimisations en continu</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Accessibilité</strong> — Barrière d'entrée réduite, l'IA comble les lacunes</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Personnalisation UX</strong> — Interfaces adaptatives et recommandations sur mesure</li>
+          </ul>
+        </div>
+
+        <div class="tw-card tw-risks reveal-up" style="--delay:240ms">
+          <div class="tw-icon"><i class="ph ph-warning"></i></div>
+          <h3>Risques &amp; Défis</h3>
+          <ul class="tw-list">
+            <li><i class="ph ph-arrow-right"></i><strong>Dépendance</strong> — La sur-dépendance réduit la pensée critique</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Sécurité</strong> — Code généré pouvant introduire des vulnérabilités</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Éthique</strong> — Biais dans les modèles menant à des sorties discriminatoires</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Emploi</strong> — L'automatisation transforme les rôles de développeur</li>
+            <li><i class="ph ph-arrow-right"></i><strong>Hallucinations</strong> — L'IA peut générer du code plausible mais incorrect</li>
+          </ul>
+        </div>
+
+        <div class="tw-card tw-example reveal-up" style="--delay:320ms">
+          <div class="tw-icon chatgpt-icon"><i class="ph ph-chat-circle-dots"></i></div>
+          <h3>ChatGPT dans le Développement</h3>
+          <p>ChatGPT d'OpenAI est devenu l'assistant incontournable des développeurs. Il explique des concepts complexes, débogue du code multi-langages, génère du boilerplate, rédige de la documentation et aide à la conception de systèmes.</p>
+          <a href="https://openai.com/chatgpt" class="tw-link" target="_blank" rel="noopener">openai.com/chatgpt <i class="ph ph-arrow-up-right"></i></a>
+        </div>
+
+        <div class="tw-card tw-example reveal-up" style="--delay:400ms">
+          <div class="tw-icon copilot-icon"><i class="ph ph-robot"></i></div>
+          <h3>GitHub Copilot</h3>
+          <p>Alimenté par OpenAI Codex, GitHub Copilot agit comme un pair-programmeur IA intégré dans VS Code. Il suggère des blocs de code entiers en temps réel selon le contexte, accélérant le développement et réduisant les allers-retours vers la documentation.</p>
+          <a href="https://github.com/features/copilot" class="tw-link" target="_blank" rel="noopener">github.com/features/copilot <i class="ph ph-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div class="tw-sources reveal-up">
+        <h3><i class="ph ph-books"></i> Sources &amp; Lectures complémentaires</h3>
+        <div class="sources-list">
+          <a href="https://openai.com" class="source-item" target="_blank" rel="noopener">
+            <i class="ph ph-link"></i> openai.com — Recherches OpenAI
+          </a>
+          <a href="https://github.blog" class="source-item" target="_blank" rel="noopener">
+            <i class="ph ph-link"></i> github.blog — Blog GitHub
+          </a>
+          <a href="https://developer.mozilla.org/fr/" class="source-item" target="_blank" rel="noopener">
+            <i class="ph ph-link"></i> developer.mozilla.org — MDN
+          </a>
+          <a href="https://arxiv.org" class="source-item" target="_blank" rel="noopener">
+            <i class="ph ph-link"></i> arxiv.org — Recherches en IA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="section-label">06 — Contact</p>
+        <h2 class="section-title">Travaillons Ensemble</h2>
+        <p class="section-sub">Vous avez un projet ou une opportunité ? Contactez-moi et concrétisons-le !</p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info reveal-left">
+          <div class="info-card">
+            <div class="info-item">
+              <div class="info-icon"><i class="ph ph-map-pin"></i></div>
+              <div>
+                <span class="info-label">Localisation</span>
+                
+                <span class="info-value">France</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="ph ph-envelope-simple"></i></div>
+              <div>
+                <span class="info-label">Email</span>
+                
+                <a href="mailto:blanchardnkoghe@gmail.com" class="info-value">blanchardnkoghe@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="ph ph-phone"></i></div>
+              <div>
+                <span class="info-label">Téléphone</span>
+                
+                <span class="info-value">+33 7 80 78 88 75</span>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            <i class="ph ph-map-trifold"></i>
+            <span>France, Europe</span>
+            <p>Disponible en télétravail &amp; opportunités locales</p>
+          </div>
+          <div class="map-container">
+          <iframe 
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.8274680578506!2d3.1735121754527547!3d50.68602747037531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c328f2e79eda2d%3A0xf05913947491e4c7!2s49%20Rue%20Jean%20Moulin%2C%2059100%20Roubaix!5e0!3m2!1sen!2sfr!4v1777991349219!5m2!1sen!2sfr"
+             width="100%" 
+             height="300" 
+             style="border:0; border-radius: 15px;" 
+             allowfullscreen="" 
+             loading="lazy">
+         </iframe>
+         </div>
+          <div class="availability-card">
+            <div class="avail-dot"></div>
+            <div>
+              <strong>Disponible</strong>
+              <p>Ouvert aux stages, alternances &amp; collaborations</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal-right">
+          <div class="form-group">
+            <label for="nom">Votre Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Jean Dupont" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse Email</label>
+            <input type="email" id="email" name="email" placeholder="jean@exemple.fr" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="Stage, Projet, Collaboration…" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre projet…"></textarea>
+          </div>
+          <button class="btn btn-primary btn-full" id="sendBtn" type="button">
+            <i class="ph ph-paper-plane-tilt"></i> Envoyer le message
+          </button>
+          <p class="form-note" id="formNote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--bg-secondary)"/>
+      </svg>
+    </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="nav-logo" href="#accueil">BN<span class="logo-dot">.</span></a>
+        <p>Blanchard NKOGHE — Développeur &amp; Étudiant BTS SIO</p>
+      </div>
+      <div class="footer-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://github.com/Blanchard-NK" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+        <a href="https://www.linkedin.com/in/blanchard-nkoghe-0090b2306/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="mailto:blanchardnkoghe@gmail.com" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Blanchard NKOGHE. Conçu avec <i class="ph ph-heart"></i> et du code.</p>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+      <i class="ph ph-arrow-up"></i>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
